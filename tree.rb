@@ -49,7 +49,7 @@ class BinaryTree
 		end
 	end
 
-	def breadth_first_search(val, qlog = [@root])
+	def breadth_first_search(val)
 
 		# mark A as visited
 		# check left node exists
@@ -62,7 +62,7 @@ class BinaryTree
 			#repeat
 
 		queue = [@root]
-
+		qlog = [@root]
 		counter = 0
 		until queue.empty? do
 			counter += 1
@@ -70,18 +70,14 @@ class BinaryTree
 
 			return puts "BFS found #{val}. Searched #{counter} nodes" if current.value == val
 
-			if val < current.value
-				if current.left
-					then queue << current.left
-						qlog << current.left
-				end
-			elsif val > current.value
-				if current.right
-					then queue << current.right
-						qlog << current.right
-				end
+			if current.left
+				then queue << current.left
+					qlog << current.left
 			end
-			qlog.each {|q| puts  q.value}
+			if current.right
+				then queue << current.right
+					qlog << current.right
+			end
 		end
 	end
 
@@ -131,11 +127,11 @@ tree = BinaryTree.new
 
 tree.build_tree([8, 7, 4, 23, 1, 4, 3, 6, 9, 67, 6345, 324])
 
- tree.breadth_first_search(324)
+ tree.breadth_first_search(7)
 
- tree.depth_first_search(324)
+ tree.depth_first_search(7)
 
- tree.dfs_rec(324)
+ tree.dfs_rec(7)
 
 
 
