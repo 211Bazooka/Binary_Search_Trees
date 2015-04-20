@@ -42,7 +42,7 @@ class Node
 	end
 
 	def onboard?(arr)
-		(1 <= arr[0] && arr[0] <= 3) && (1 <= arr[1] && arr[1] <= 3)
+		(1 <= arr[0] && arr[0] <= 8) && (1 <= arr[1] && arr[1] <= 8)
 	end
 
 end
@@ -81,27 +81,15 @@ class Game
 			node = node.parent
 		end
 		path.unshift(@root.position)
-		print path
+		print "Path: #{path}"
 	end
 
 
 end
 
- g = Game.new([1, 1], [2, 2])
+ g = Game.new([1, 1], [7, 6])
 
  g.knight_moves
-###################### Slight start to the recursive process #############
-# n = Node.new([1, 1])
-# o = Node.new([3, 2], n)
-# p = Node.new([1, 3], o)
-# q = Node.new([2, 1], q)
-#print q.valid_mv
-#stack = [n]
-#n.valid_mv.each {|p| n1 = Node.new([p[0], p[1]], n); stack << n1}
-#stack.each {|x| print x.position}
-
-
-##########################################################################
 
 # get all valid moves
 # if valid == end then return
